@@ -1,0 +1,12 @@
+host: http://localhost:9090
+workDir: "/project/with/docker-compose/"
+startDelay:   15
+testDuration: 70
+timeout: 5
+metrics: 
+  - name: errors
+    query: sum(logback_events_total{level="error"})
+    maxValue: 0
+  - name: infos
+    query: sum(logback_events_total{level="info"})
+    maxValue: 1500
